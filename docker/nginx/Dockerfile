@@ -14,7 +14,7 @@ WORKDIR /var/www
 
 RUN apt-get update
 
-# COPY ./docker/nginx/ecs/conf.d/default.conf /etc/nginx/conf.d/default.conf
+COPY ./docker/nginx/ecs/conf.d/default.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=node-build /var/www/public /var/www/public
 
