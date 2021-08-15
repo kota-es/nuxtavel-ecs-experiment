@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
             zip \
             unzip
 
+RUN docker-php-ext-install pdo_mysql
+
 RUN composer install
 
 RUN php artisan cache:clear \

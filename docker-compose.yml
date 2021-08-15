@@ -36,4 +36,17 @@ services:
       - 80
     depends_on: 
       - backend
-
+  database:
+    container_name: database
+    image: mysql:8.0
+    volumes:
+      - ./database:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      - MYSQL_DATABASE=localdb
+      - MYSQL_USER=localadmin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Tokyo
+    ports:
+      - 3306:3306
