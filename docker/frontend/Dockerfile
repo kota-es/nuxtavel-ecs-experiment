@@ -5,5 +5,5 @@ WORKDIR  /var/www
 COPY ./frontend /var/www
 RUN yarn cache clean
 RUN yarn
-RUN yarn build
-ENTRYPOINT [ "yarn", "start" ]
+RUN yarn build:prod
+ENTRYPOINT [ "yarn", "start:prod" ]
