@@ -1,3 +1,5 @@
+const environment = process.env.NODE_ENV
+const envSettings = require(`./env/env.${environment}.js`)
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -42,10 +44,11 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost'
+    baseURL: process.env.BASE_URL || envSettings.BASE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  env: envSettings
 }
